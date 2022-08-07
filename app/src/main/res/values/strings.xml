@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Cadastro</string>
+    <string name="nome_completo">Nome completo</string>
+    <string name="telefone">Telefone</string>
+    <string name="telefone_hint">Ex: 12-93456-7890</string>
+    <string name="email">Email</string>
+    <string name="check_box_text_email">Ingressar na lista de e-mails?</string>
+    <string name="sexo">Sexo</string>
+    <string name="radio_text_sexo_masculino">Masculino</string>
+    <string name="radio_text_sexo_feminino">Feminino</string>
+    <string name="cidade">Cidade</string>
+    <string name="uf">UF</string>
+    <string name="button_limpar">Limpar</string>
+    <string name="button_salvar">Salvar</string>
 </resources>
