@@ -157,7 +157,7 @@
         android:layout_width="190dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:text="@string/button_salvar"
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:layout_constraintStart_toEndOf="@+id/btnLimpar"/>
