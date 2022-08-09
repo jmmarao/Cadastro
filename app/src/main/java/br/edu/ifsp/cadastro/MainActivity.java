@@ -27,21 +27,17 @@ public class MainActivity extends AppCompatActivity {
 
         activityMainBinding.btnSalvar.setOnClickListener(
                 view -> {
-                    String nomeCompleto = activityMainBinding.inputNomeCompleto.toString();
-                    String telefone = activityMainBinding.inputTelefone.toString();
-                    String email = activityMainBinding.inputEmail.toString();
-                    boolean listado = false;
-//                    boolean listado = activityMainBinding.ckListaEmail.getSele;
-                    String sexo = "Masculino";
-//                    String sexo = activityMainBinding.inputTelefone.toString();
-                    String cidade = activityMainBinding.inputCidade.toString();
+                    String nomeCompleto = activityMainBinding.inputNomeCompleto.getText().toString();
+                    String telefone = activityMainBinding.inputTelefone.getText().toString();
+                    String email = activityMainBinding.inputEmail.getText().toString();
+                    boolean listado = activityMainBinding.ckListaEmail.isChecked();
+                    String sexo = activityMainBinding.radioSexoFeminino.isChecked()? "Feminino" : "Masculino";
+                    String cidade = activityMainBinding.inputCidade.getText().toString();
                     String uf = activityMainBinding.spinner.getSelectedItem().toString();
 
                     Formulario formulario = new Formulario(nomeCompleto, telefone, email, listado, sexo, cidade, uf);
 
                     Toast.makeText(this, formulario.toString(), Toast.LENGTH_LONG).show();
-
-                    System.out.println(formulario);
                 }
         );
     }
