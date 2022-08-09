@@ -11,7 +11,6 @@ import br.edu.ifsp.cadastro.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding activityMainBinding;
-    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(activityMainBinding.getRoot());
 
-        spinner = findViewById(activityMainBinding.spinner.getId());
+        Spinner spinner = findViewById(activityMainBinding.spinner.getId());
 
         spinner.setAdapter(new ArrayAdapter<UF>(
                 this, android.R.layout.simple_spinner_item, UF.values()));

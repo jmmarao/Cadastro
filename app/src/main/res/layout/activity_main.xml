@@ -141,7 +141,7 @@
     <Button
         android:id="@+id/btnLimpar"
         android:layout_width="150dp"
-        android:layout_marginStart="70dp"
+        android:layout_marginStart="55dp"
         android:layout_height="wrap_content"
         android:text="@string/button_limpar"
         app:layout_constraintStart_toStartOf="parent"
