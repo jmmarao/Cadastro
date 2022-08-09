@@ -18,4 +18,15 @@ public class Formulario {
         this.cidade = cidade;
         this.uf = uf;
     }
+
+    @Override
+    public String toString() {
+        return "Nome completo: " + nomeCompleto +
+                "\n\tTelefone: " + telefone +
+                "\n\tEmail: " + email +
+                "\n\tListado: " + listado +
+                "\n\tSexo: " + sexo +
+                "\n\tCidade: " + cidade +
+                " (" + uf + ")";
+    }
 }
