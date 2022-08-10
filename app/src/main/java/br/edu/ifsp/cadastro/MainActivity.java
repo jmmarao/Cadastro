@@ -31,13 +31,26 @@ public class MainActivity extends AppCompatActivity {
                     String telefone = activityMainBinding.inputTelefone.getText().toString();
                     String email = activityMainBinding.inputEmail.getText().toString();
                     boolean listado = activityMainBinding.ckListaEmail.isChecked();
-                    String sexo = activityMainBinding.radioSexoFeminino.isChecked()? "Feminino" : "Masculino";
+                    String sexo = activityMainBinding.radioSexoFeminino.isChecked() ? "Feminino" : "Masculino";
                     String cidade = activityMainBinding.inputCidade.getText().toString();
                     String uf = activityMainBinding.spinner.getSelectedItem().toString();
 
                     Formulario formulario = new Formulario(nomeCompleto, telefone, email, listado, sexo, cidade, uf);
 
                     Toast.makeText(this, formulario.toString(), Toast.LENGTH_LONG).show();
+                }
+        );
+
+        activityMainBinding.btnLimpar.setOnClickListener(
+                view -> {
+                    activityMainBinding.inputNomeCompleto.getText().clear();
+                    activityMainBinding.inputTelefone.getText().clear();
+                    activityMainBinding.inputEmail.getText().clear();
+                    activityMainBinding.ckListaEmail.setChecked(false);
+                    activityMainBinding.radioGroup.clearCheck();
+                    activityMainBinding.inputCidade.getText().clear();
+                    activityMainBinding.spinner.setAdapter(new ArrayAdapter<UF>(
+                            this, android.R.layout.simple_spinner_item, UF.values()));
                 }
         );
     }
