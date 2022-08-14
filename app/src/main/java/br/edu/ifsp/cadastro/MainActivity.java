@@ -1,5 +1,6 @@
 package br.edu.ifsp.cadastro;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -27,31 +28,38 @@ public class MainActivity extends AppCompatActivity {
 
         activityMainBinding.btnSalvar.setOnClickListener(
                 view -> {
-                    String nomeCompleto = activityMainBinding.inputNomeCompleto.getText().toString();
-                    String telefone = activityMainBinding.inputTelefone.getText().toString();
-                    String email = activityMainBinding.inputEmail.getText().toString();
-                    boolean listado = activityMainBinding.ckListaEmail.isChecked();
-                    String sexo = activityMainBinding.radioSexoFeminino.isChecked() ? "Feminino" : "Masculino";
-                    String cidade = activityMainBinding.inputCidade.getText().toString();
-                    String uf = activityMainBinding.spinner.getSelectedItem().toString();
-
-                    Formulario formulario = new Formulario(nomeCompleto, telefone, email, listado, sexo, cidade, uf);
+                    Formulario formulario = getFormulario();
 
                     Toast.makeText(this, formulario.toString(), Toast.LENGTH_LONG).show();
                 }
         );
 
         activityMainBinding.btnLimpar.setOnClickListener(
-                view -> {
-                    activityMainBinding.inputNomeCompleto.getText().clear();
-                    activityMainBinding.inputTelefone.getText().clear();
-                    activityMainBinding.inputEmail.getText().clear();
-                    activityMainBinding.ckListaEmail.setChecked(false);
-                    activityMainBinding.radioGroup.clearCheck();
-                    activityMainBinding.inputCidade.getText().clear();
-                    activityMainBinding.spinner.setAdapter(new ArrayAdapter<UF>(
-                            this, android.R.layout.simple_spinner_item, UF.values()));
-                }
+                view -> clearFormulario()
         );
+    }
+
+    @NonNull
+    private Formulario getFormulario() {
+        String nomeCompleto = activityMainBinding.inputNomeCompleto.getText().toString();
+        String telefone = activityMainBinding.inputTelefone.getText().toString();
+        String email = activityMainBinding.inputEmail.getText().toString();
+        boolean listado = activityMainBinding.ckListaEmail.isChecked();
+        String sexo = activityMainBinding.radioSexoFeminino.isChecked() ? "Feminino" : "Masculino";
+        String cidade = activityMainBinding.inputCidade.getText().toString();
+        String uf = activityMainBinding.spinner.getSelectedItem().toString();
+
+        return new Formulario(nomeCompleto, telefone, email, listado, sexo, cidade, uf);
+    }
+
+    private void clearFormulario() {
+        activityMainBinding.inputNomeCompleto.getText().clear();
+        activityMainBinding.inputTelefone.getText().clear();
+        activityMainBinding.inputEmail.getText().clear();
+        activityMainBinding.ckListaEmail.setChecked(false);
+        activityMainBinding.radioGroup.clearCheck();
+        activityMainBinding.inputCidade.getText().clear();
+        activityMainBinding.spinner.setAdapter(new ArrayAdapter<UF>(
+                this, android.R.layout.simple_spinner_item, UF.values()));
     }
 }
